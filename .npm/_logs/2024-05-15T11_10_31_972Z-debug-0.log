@@ -30,3 +30,27 @@
 29 timing npm:load Completed in 17ms
 30 silly logfile done cleaning log files
 31 http fetch GET 200 https://registry.npmjs.org/npm 295ms
+32 timing command:run Completed in 6862956ms
+33 notice
+33 notice New minor version of npm available! 10.5.2 -> 10.7.0
+33 notice Changelog: <https://github.com/npm/cli/releases/tag/v10.7.0>
+33 notice Run `npm install -g npm@10.7.0` to update!
+33 notice
+34 verbose stack Error: command failed
+34 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/@npmcli/promise-spawn/lib/index.js:53:27)
+34 verbose stack     at ChildProcess.emit (node:events:519:28)
+34 verbose stack     at maybeClose (node:internal/child_process:1105:16)
+34 verbose stack     at ChildProcess._handle.onexit (node:internal/child_process:305:5)
+35 verbose pkgid share-favplace-front@0.1.0
+36 verbose cwd /app
+37 verbose Linux 6.6.22-linuxkit
+38 verbose node v20.13.1
+39 verbose npm  v10.5.2
+40 error path /app
+41 error command failed
+42 error signal SIGTERM
+43 error command sh -c react-scripts start
+44 verbose exit 1
+45 timing npm Completed in 6863000ms
+46 verbose code 1
+47 error A complete log of this run can be found in: /app/.npm/_logs/2024-05-15T11_10_31_972Z-debug-0.log
