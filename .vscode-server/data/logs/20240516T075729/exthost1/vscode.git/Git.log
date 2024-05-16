@@ -1,0 +1,4 @@
+2024-05-15 22:57:32.158 [info] ログ レベル: Info
+2024-05-15 22:57:32.158 [info] Git の検証が検出されました: "git"
+2024-05-15 22:57:32.158 [warning] Unable to find git. Error: spawn git ENOENT
+2024-05-15 22:57:32.158 [warning] Git installation not found.
