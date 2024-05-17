@@ -27,6 +27,7 @@ WORKDIR ${HOME}
 COPY package*.json ./
 RUN npm install
 COPY . .
+RUN npm cache clean
 RUN npm run build
 
 #
