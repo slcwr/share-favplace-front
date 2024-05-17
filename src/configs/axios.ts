@@ -1,5 +1,7 @@
+import { editableInputTypes } from "@testing-library/user-event/dist/utils";
 import axios from "axios";
 
+let error:string = "";
 let instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
