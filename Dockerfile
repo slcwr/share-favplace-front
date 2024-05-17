@@ -13,7 +13,7 @@
 #
 # Build stage
 #
-FROM node:21-bullseye-slim AS builder
+FROM node:20-alpine AS builder
 
 ARG WORKDIR
 
@@ -27,7 +27,6 @@ WORKDIR ${HOME}
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm cache clean
 RUN npm run build
 
 #
