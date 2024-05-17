@@ -1,7 +1,7 @@
 import { editableInputTypes } from "@testing-library/user-event/dist/utils";
 import axios from "axios";
 
-let error:string = "";
+
 let instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
@@ -13,7 +13,7 @@ if (process.env.REACT_APP_ENV !== 'production') {
       console.log(config);
       return config;
     },
-    (error) => {
+    (error: string) => {
       console.log(error);
       return Promise.reject(error);
     }
