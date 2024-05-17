@@ -27,7 +27,7 @@ WORKDIR ${HOME}
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN yarn build
+# RUN yarn build
 
 #
 # Production stage
