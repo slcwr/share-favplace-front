@@ -1,8 +1,26 @@
+# version: "3.9"
+# services:
+#   front:
+#     build:
+#       context: .
+#       args:
+#         WORKDIR: ${WORKDIR}
+#     container_name: share-favplace-front
+#     env_file:
+#       - ./environment/react-app-variables.env
+#     command: npm run start
+#     volumes:
+#       - .:/${WORKDIR}
+#     ports:
+#       - "${FRONT_PORT}:${FRONT_PORT}"
+
 version: "3.9"
 services:
   front:
     build:
       context: .
+      dockerfile: Dockerfile
+      target: builder
       args:
         WORKDIR: ${WORKDIR}
     container_name: share-favplace-front
