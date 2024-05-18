@@ -24,8 +24,8 @@ services:
       args:
         WORKDIR: ${WORKDIR}
     container_name: share-favplace-front
-    # env_file:
-    #   - ./environment/react-app-variables.env
+    env_file:
+       - ./environment/react-app-variables.env
     command: npm run start
     volumes:
       - .:/${WORKDIR}
