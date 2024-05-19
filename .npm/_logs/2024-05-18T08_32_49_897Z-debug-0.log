@@ -29,3 +29,22 @@
 28 timing npm:load:configScope Completed in 0ms
 29 timing npm:load Completed in 23ms
 30 silly logfile done cleaning log files
+31 timing command:run Completed in 58442084ms
+32 verbose stack Error: command failed
+32 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/@npmcli/promise-spawn/lib/index.js:53:27)
+32 verbose stack     at ChildProcess.emit (node:events:519:28)
+32 verbose stack     at maybeClose (node:internal/child_process:1105:16)
+32 verbose stack     at ChildProcess._handle.onexit (node:internal/child_process:305:5)
+33 verbose pkgid share-favplace-front@0.1.0
+34 verbose cwd /app
+35 verbose Linux 6.6.22-linuxkit
+36 verbose node v20.13.1
+37 verbose npm  v10.5.2
+38 error path /app
+39 error command failed
+40 error signal SIGTERM
+41 error command sh -c react-scripts start
+42 verbose exit 1
+43 timing npm Completed in 58442133ms
+44 verbose code 1
+45 error A complete log of this run can be found in: /app/.npm/_logs/2024-05-18T08_32_49_897Z-debug-0.log
