@@ -1,0 +1,66 @@
+.Form {
+    font-family: sans-serif;
+  }
+  * {
+    box-sizing: border-box;
+    font-size: 100%;
+    line-height: 1.6;
+  }
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+  h2 {
+    font-size: 16px;
+  }
+  input[type="text"] {
+    width: 100%;
+    display: block;
+  }
+  select {
+    width: 100%;
+    display: block;
+  }
+  textarea {
+    width: 100%;
+    display: block;
+  }
+  .wrapper {
+    padding: 16px;
+  }
+  .section {
+    margin-top: 32px;
+    border: 1px solid #222;
+    padding: 16px;
+  }
+  
+  /* form */
+  .form-item {
+    margin-top: 16px;
+  }
+  .submit-button {
+    text-align: center;
+    margin-top: 16px;
+  }
+  .label {
+    display: inline-block;
+    padding: 4px;
+    border-radius: 6px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    font-size: 10px;
+    color: #fff;
+    background: #666;
+  }
+  .required {
+    background: red;
+  }
+  .error-message {
+    font-size: 14px;
+    color: red;
+  }
+  
