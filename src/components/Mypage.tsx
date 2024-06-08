@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import axios from './configs/axios';
-import { User } from './types/User';
+import axios from '../configs/axios';
+import { User } from '../types/User';
 
-export default function App() {
+const Mypage = () => {
   const [users, setUsers] = useState(Array<User>);
 
   const handleClick = () => {
@@ -28,16 +28,10 @@ export default function App() {
                     ID
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Username
-                  </th>
-                  <th scope="col" className="px-6 py-3">
                     Email
                   </th>
                   <th scope="col" className="px-6 py-3">
                     Password
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Activated
                   </th>
                 </tr>
               </thead>
@@ -48,16 +42,10 @@ export default function App() {
                       { user.id }
                     </th>
                     <td className="px-6 py-4">
-                      { user.username }
-                    </td>
-                    <td className="px-6 py-4">
                       { user.email}
                     </td>
                     <td className="px-6 py-4">
                       { user.password }
-                    </td>
-                    <td className="px-6 py-4">
-                      { user.activated ? '○' : '×'}
                     </td>
                   </tr>
                 ))}
@@ -70,3 +58,4 @@ export default function App() {
     </div>
   )
 }
+export default Mypage;

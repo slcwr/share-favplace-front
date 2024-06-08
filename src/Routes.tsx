@@ -2,8 +2,8 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./Home"
 import Login from "./components/Login"
-import Toroku from "./components/Toroku"
 import Mypage from "./components/Mypage"
+import Toroku from "./components/Toroku"
 
 export const AppRoutes = () => {
     return (

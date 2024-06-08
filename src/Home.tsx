@@ -3,17 +3,23 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
     const navigate = useNavigate()
-    const handleForm = () => {
+    const handleLogin = () => {
         navigate('/Login')
     }
-    const handleView = () => {
+    const handleToroku = () => {
         navigate('/Toroku')
     }
+    const handleMypage = () => {
+        navigate('/Mypage')
+    }
+
     return (
         <>
-            <button onClick={handleForm}>ログイン画面</button>
+            <button onClick={handleLogin}>ログイン画面</button>
             <br />
-            <button onClick={handleView}>新規登録</button>
+            <button onClick={handleToroku}>新規登録</button>
+            <br />
+            <button onClick={handleMypage}>マイページ</button>
         </>
     )
 }

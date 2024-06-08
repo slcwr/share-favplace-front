@@ -1,0 +1,106 @@
+import { FC } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import "./styles.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import axios from 'axios';
+import { Buffer } from 'buffer';
+
+
+type InputData = {
+  email: string;
+  password: string;
+};
+
+const Toroku: FC = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<InputData>();
+  
+
+  const onSubmit: SubmitHandler<InputData> = async (data) => {
+    console.log('Sending data:', data);
+    //const buffer = Buffer.from(JSON.stringify(data));
+    try {
+      await axios.post('http://localhost:8080/api/v1/new', data,
+       {
+         headers: {
+           'Content-Type': 'application/json',
+           'Accept': 'application/json, text/plain, */*',
+           'Accept-Encoding': 'gzip, deflate, br'
+         }
+    //     withCredentials: true,
+      }
+    );
+    //   console.log('Success:', data);
+     } 
+    catch (error) {
+      if (axios.isAxiosError(error)) {
+        if (error.response) {
+          console.log('Error response data:', error.response.data);
+          console.log('Error response status:', error.response.status);
+          console.log('Error response headers:', error.response.headers);
+        } else if (error.request) {
+          console.log('Error request:', error.request);
+        } else {
+          console.log('Error message:', error.message);
+        }
+        console.log('Error config:', error.config);
+      } else {
+        console.log('Unexpected error:', error);
+      }
+    }
+  
+  };
+
+
+
+
+  return (
+    <div className="wrapper">
+      <h1>新規会員登録</h1>
+      <section className="section">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="form-item">
+            <label>
+              <span className="label required">必須</span>
+              <span>Email</span>
+              <input
+                type="text"
+                {...register("email", {
+                  required: "メールアドレスを入力してください",
+                })}
+              />
+            </label>
+            {errors.email?.message && (
+              <p className="error-message">{errors.email?.message}</p>
+            )}
+          </div>
+          <div className="form-item">
+            <label>
+              <span className="label required">必須</span>
+              <span>PASSWORD</span>
+              <input
+                type="text" 
+                {...register("password", {
+                  required: "パスワードを入力してください",
+                })}
+              />
+            </label>
+            {errors.password?.message && (
+              <p className="error-message">{errors.password?.message}</p>
+            )}
+          </div>
+          <div className="submit-button">
+            <Button type="submit">登録する</Button>
+          </div>
+        </form>
+      </section>
+    </div>
+  );
+};
+
+export default Toroku;
+
