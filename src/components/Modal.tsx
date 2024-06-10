@@ -1,5 +1,5 @@
-import { clearCart } from '../features/cart/CartSlice'
-import { closeModal } from '../features/modal/ModalSlice'
+import { clearCart } from '../features/cart/cartSlice'
+import { closeModal } from '../features/modal/modalSlice'
 import { useDispatch } from 'react-redux'
 
 const Modal = () => {
