@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import CartItem from '../components/CartItem';
 import { openModal, addOpenModal } from '../features/modal/modalSlice';
 import { RootState } from '../store'; // 自分のプロジェクトのパスに置き換えてください
-//import { CartItemType } from '../types'; // CartItemType を適切な場所からインポート
 import { CartItemType } from './CartItem';
 
 const CartContainer: React.FC = () => {
