@@ -1,4 +1,3 @@
-import { editableInputTypes } from "@testing-library/user-event/dist/utils";
 import axios from "axios";
 
 let instance = axios.create({

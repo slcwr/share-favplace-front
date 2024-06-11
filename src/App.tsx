@@ -1,99 +1,30 @@
-// import { useState } from 'react';
-// import axios from './configs/axios';
+import './App.css';
+import Navbar from './components/Navbar';
+import CartContainer from './components/CartContainer';
+import Modal from './components/Modal';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { calculateTotals } from './features/cart/cartSlice';
+import { AppDispatch, RootState } from './store'; // 自分のプロジェクトのパスに置き換えてください
+import AddModal from './components/AddModal';
 
-// export default function App() {
-//   const [text, setText] = useState('');
+const App: React.FC = () => {
+  const dispatch: AppDispatch = useDispatch();
+  const { cartItems } = useSelector((state: RootState) => state.cart);
+  const { isOpen, isAddOpen } = useSelector((state: RootState) => state.modal);
 
-//   const handleClick = () => {
-//     axios.get('/api/v1/hello')
-//       .then((res) => {
-//         setText(res.data)
-//       })
-//   };
-
-//   return (
-//     <div>
-//       <div className='flex justify-center mt-10'>
-//         <button type="button" className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onClick={() => handleClick()}>Click!</button>
-//       </div>
-//       <div className="flex justify-center mt-5">
-//         <h1 className="text-3xl font-bold underline">
-//           { text }
-//         </h1>
-//       </div>
-//     </div>
-//   )
-// }
-
-import { useState } from 'react';
-import axios from './configs/axios';
-import { User } from './types/User';
-
-export default function App() {
-  const [users, setUsers] = useState(Array<User>);
-
-  const handleClick = () => {
-    axios.get('/api/v1/users')
-      .then((res) => {
-        setUsers(res.data)
-        console.log(res.data[0].activated);
-      })
-  };
+  useEffect(() => {
+    dispatch(calculateTotals());
+  }, [cartItems, dispatch]);
 
   return (
-    <div>
-      <div className='flex justify-center mt-10'>
-        <button type="button" className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" onClick={() => handleClick()}>Click!</button>
-      </div>
-      <div className="flex justify-center mt-5">
-        <h1 className="text-3xl font-bold underline">
-          <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table className="w-full text-sm text-left rtl:text-right text-blue-100 dark:text-blue-100">
-              <thead className="text-xs text-white uppercase bg-blue-600 dark:text-white">
-                <tr>
-                  <th scope="col" className="px-6 py-3">
-                    ID
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Username
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Email
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Password
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Activated
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {users.map((user) => (
-                  <tr className="bg-blue-500 border-b border-blue-400" key={user.id}>
-                    <th scope="row" className="px-6 py-4 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">
-                      { user.id }
-                    </th>
-                    <td className="px-6 py-4">
-                      { user.username }
-                    </td>
-                    <td className="px-6 py-4">
-                      { user.email}
-                    </td>
-                    <td className="px-6 py-4">
-                      { user.password }
-                    </td>
-                    <td className="px-6 py-4">
-                      { user.activated ? '○' : '×'}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+    <main>
+      {isOpen && <Modal />}
+      { isAddOpen && <AddModal />}
+      <Navbar />
+      <CartContainer />
+    </main>
+  );
+};
 
-        </h1>
-      </div>
-    </div>
-  )
-}
+export default App;
