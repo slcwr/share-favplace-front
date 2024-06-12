@@ -3,14 +3,17 @@ import axios from '../configs/axios';
 import { User } from '../types/User';
 
 const Mypage = () => {
-  const [users, setUsers] = useState(Array<User>);
+  const [users, setUsers] = useState<User[]>([]);
 
   const handleClick = () => {
     axios.get('/api/v1/users')
       .then((res) => {
-        setUsers(res.data)
+        setUsers(res.data);
         console.log(res.data[0].activated);
       })
+      .catch((error) => {
+        console.error('Error fetching users:', error);
+      });
   };
 
   return (
