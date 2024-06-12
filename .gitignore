@@ -24,6 +24,6 @@ yarn-error.log*
 # VScode
 .vscode-server/
 
-# env
-*.env
-.environment/
+# # env
+# *.env
+# .environment/
