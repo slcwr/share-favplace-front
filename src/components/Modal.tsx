@@ -6,7 +6,7 @@ const Modal = () => {
   const dispatch = useDispatch()
   return (
     <aside className="modal-container">
-        <div className="modal">
+        <div className="modal add">
             <h4>買い物かごを全て空にしますか？</h4>
             <div className="btn-container">
                 <button className="btn confirm-btn" onClick={() => {

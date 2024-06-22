@@ -19,6 +19,7 @@ const App: React.FC = () => {
 
   return (
     <main>
+      {/* <Modal /> */}
       {isOpen && <Modal />}
       { isAddOpen && <AddModal />}
       <Navbar />

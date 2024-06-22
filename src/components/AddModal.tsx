@@ -31,7 +31,7 @@ const schema = yup.object({
    amount: yup.number()
 }).required();
 
-const Modal: React.FC = () => {
+const AddModal: React.FC = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
     resolver: yupResolver(schema),
@@ -41,6 +41,8 @@ const Modal: React.FC = () => {
     dispatch(addItem(data));
     dispatch(closeModal());
   };
+
+  console.log("bbb")
 
   return (
     <aside className="modal-container">
@@ -61,5 +63,5 @@ const Modal: React.FC = () => {
   );
 };
 
-export default Modal;
+export default AddModal;
 
