@@ -347,6 +347,7 @@ hr {
   border-radius: var(--radius);
   padding: 2rem 1rem;
   text-align: center;
+  
 }
 .modal h4 {
   margin-bottom: 0;

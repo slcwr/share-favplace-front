@@ -11,7 +11,7 @@ const CartContainer: React.FC = () => {
 
   return (
     <section className='cart'>
-      <header className='cart-header'>
+      <header className='cart-header' >
         <h2>カート</h2>
         <button className='add-btn' onClick={() => dispatch(addOpenModal())}>追加</button>
       </header>
