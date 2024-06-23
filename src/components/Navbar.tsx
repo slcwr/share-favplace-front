@@ -3,7 +3,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import { RootState } from '../store'; // 自分のプロジェクトのパスに置き換えてください
 import { CartIcon } from '../HeroIcon';
 import { clearCart } from '../features/cart/cartSlice'
-import { openCartModal } from '../features/modal/modalSlice'
+import { addOpenModal,openCartModal } from '../features/modal/modalSlice'
 
 const NavBar: React.FC = () => {
   const amount = useSelector((state: RootState) => state.cart.amount);
