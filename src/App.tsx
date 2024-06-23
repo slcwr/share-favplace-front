@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { calculateTotals } from './features/cart/cartSlice';
 import { AppDispatch, RootState } from './store'; // 自分のプロジェクトのパスに置き換えてください
 import AddModal from './components/AddModal';
+import CartModal from './components/CartModal';
 
 const App: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -19,10 +20,10 @@ const App: React.FC = () => {
 
   return (
     <main>
-      {/* <Modal /> */}
       {isOpen && <Modal />}
       { isAddOpen && <AddModal />}
       <Navbar />
+      {isOpen && <CartModal />}
       <CartContainer />
     </main>
   );
