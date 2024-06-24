@@ -33,7 +33,7 @@ const CartModal = () => {
           // idがある場合に限り、CartItemをレンダリング
           const cartItemProps: CartItemType = {
             id: item.id,
-            img: item.img,
+            // img: item.img,
             title: item.title,
             price: item.price,
             amount: item.amount || 0, // amountがundefinedの場合に0を代入
